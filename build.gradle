@@ -7,6 +7,7 @@ plugins {
     id 'jacoco'
     id 'pmd'
     id 'checkstyle'
+    id 'idea'
 
     // community plugins
     id 'com.diffplug.spotless' version '6.25.0'
@@ -19,6 +20,14 @@ plugins {
     id 'org.sonarqube' version '5.1.0.4882'
     id 'team.yi.semantic-gitlog' version '0.6.12'
 }
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}
+
 
 group = 'io.neonbee'
 version = '0.37.2-SNAPSHOT'

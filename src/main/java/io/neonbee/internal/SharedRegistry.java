@@ -87,7 +87,8 @@ public class SharedRegistry<T> implements Registry<T> {
 
         Future<AsyncMap<String, Object>> sharedMap = getSharedMap();
 
-        return sharedMap.compose(map -> map.get(sharedMapKey)).map(jsonArray -> (JsonArray) jsonArray)
+        return sharedMap.compose(map -> map.get(sharedMapKey))
+                .map(jsonArray -> (JsonArray) jsonArray)
                 .compose(values -> {
                     if (values == null) {
                         return succeededFuture();
